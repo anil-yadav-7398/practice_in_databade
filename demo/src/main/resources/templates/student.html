@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT INFO MANAGEMENT</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class=" main">
+        <h1>STUDENT INFORMATION SAVE</h1>
+        <p th:text="${save}" class=" para"></p><br>
+        <form action="/student" method="post" class="insert">
+
+            <label for="">ID :</label>
+            <input type="text" name="id" required><br />
+            <Label>Name :</Label>
+            <input type="text" name="name" required>
+            <br />
+            <label>Address: </label>
+            <input type="text" name="address" required><br>
+            <button type="submit"> SAVE</button>
+        </form>
+        <h1>STUDENT INFORMATION UPDATE</h1><br>
+        <p th:text="${update}" class="para"></p><br>
+        <form action="/update" method="post" class="update">
+
+            <label for="">ID :</label>
+            <input type="text" name="id" required><br>
+            <Label>Name :</Label>
+            <input type="text" name="name" required>
+            <br />
+            <label>Address: </label>
+            <input type="text" name="address" required><br>
+            <button type="submit"> EDIT</button>
+        </form><br>
+        <br>
+        <h1>STUDENT INFORMATION DELETE</h1><br>
+        <p th:text="${delete}" class="para"></p><br>
+        <form action="/delete" method="post" class="del">
+
+            <label for="">ID :</label>
+            <input type="text" name="id" required><br>
+            <button type="submit">DELETE</button>
+        </form><br><br>
+        <table border="1" class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+            <tr th:each="s:${student}">
+                <td th:text="${s.id}"></td>
+                <td th:text="${s.name}"></td>
+                <td th:text="${s.address}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
